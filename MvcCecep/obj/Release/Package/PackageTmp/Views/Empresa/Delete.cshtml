@@ -1,0 +1,136 @@
+﻿@model MvcCecep.ccempresa
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ccempresa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.celular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.celular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contactnombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactnombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contacttelefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contacttelefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contactcelular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactcelular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loggin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loggin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contraseña)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contraseña)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechafundacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechafundacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechacreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechacreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ccarea.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccarea.codigo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

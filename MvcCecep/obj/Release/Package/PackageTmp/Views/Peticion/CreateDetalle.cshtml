@@ -1,0 +1,21 @@
+﻿@model MvcCecep.ccpeticiondet
+
+@{
+    ViewBag.Title = "CreateDetalle";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div style="width: 900px; margin: 0 auto; margin-top: 40px;">
+        <div class="control-group">
+            @Html.Partial("_CreateOrEditDetalle", Model)
+
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+
+}

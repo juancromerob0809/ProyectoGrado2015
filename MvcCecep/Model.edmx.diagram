@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="49e6ee721bf34624bc8b3f96bc1078b3" Name="Diagram1">
+        <EntityTypeShape EntityType="fcecepModel.ccarea" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="fcecepModel.cccurso" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="fcecepModel.ccempresa" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="fcecepModel.ccevento" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="fcecepModel.ccnoticia" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="fcecepModel.ccpeticion" Width="1.5" PointX="5.25" PointY="6.875" />
+        <EntityTypeShape EntityType="fcecepModel.ccpeticiondet" Width="1.5" PointX="7.5" PointY="7.125" />
+        <EntityTypeShape EntityType="fcecepModel.cctiposerv" Width="1.5" PointX="5.25" PointY="3.5" />
+        <EntityTypeShape EntityType="fcecepModel.cctiposervdet" Width="1.5" PointX="7.5" PointY="3.125" />
+        <AssociationConnector Association="fcecepModel.cc_peticion_area" />
+        <AssociationConnector Association="fcecepModel.fk_empresa_area" />
+        <AssociationConnector Association="fcecepModel.cc_peticion_empre" />
+        <AssociationConnector Association="fcecepModel.cc_peticiondet_peticion" />
+        <AssociationConnector Association="fcecepModel.cc_peticiondet_tiposerv" />
+        <AssociationConnector Association="fcecepModel.fk_tiposervdet_tiposerv" />
+        <EntityTypeShape EntityType="fcecepModel.ccpeticionserv" Width="1.5" PointX="9.75" PointY="7.375" />
+        <AssociationConnector Association="fcecepModel.fk_peticionser_peticiondet" />
+        <AssociationConnector Association="fcecepModel.fk_peticionserv_tiposervdet" />
+        <EntityTypeShape EntityType="fcecepModel.cctiposervcat" Width="1.5" PointX="3.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

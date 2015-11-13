@@ -1,0 +1,59 @@
+﻿@model MvcCecep.ccpeticiondet
+
+@{
+    ViewBag.Title = "VerificaServicio";
+}
+
+<h2>Verificación de Requisitos</h2>
+
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.descripcion)
+    </div>
+    <div class="col-md-5">
+        @Html.EditorFor(model => model.descripcion)
+    </div>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Codigo
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Estado
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ccpeticionserv)
+        { 
+        <tr>
+            <td>
+                @item.cctiposervdet.codigo
+            </td>
+            <td>
+                @item.cctiposervdet.descripcion
+            </td>
+            <td>
+                @item.estado
+            </td>
+        </tr>
+        }
+        @*@for (int i = 0; i < Model.ccpeticionserv.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.EditorFor(model => model.ccpeticionserv[i])
+                </td>
+            </tr>
+        }*@
+    </tbody>
+</table>
+

@@ -1,0 +1,18 @@
+﻿@model MvcCecep.cctiposervdet
+
+@{
+    ViewBag.Title = "CreateDetalle";
+}
+
+@using (Html.BeginForm())
+{
+    <h3>Nueva Condición de Tipo de Servicio</h3>
+    
+    <div>
+        @Html.Partial("_CreateOrEditDetalle", Model)
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+}
+

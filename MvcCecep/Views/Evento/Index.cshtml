@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MvcCecep.ccevento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Eventos</h2>
+
+
+<p>
+    @Html.ActionLink("Nuevo Evento", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="text-align:center;">
+                Titulo
+            </th>
+            <th style="text-align:center;">
+                Fecha
+            </th>
+            <th style="text-align:center;">
+                Tipo
+            </th>
+            <th style="text-align:center;">
+                Opciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.titulo
+                </td>
+                <td style="text-align:center;">
+                    @string.Format("{0:dd/MMMM/yyyy}", item.fechaevento)
+                </td>
+                <td>
+                    @if (item.tipo == "1")
+                    {
+                        @Html.Raw("Curso")
+                    }
+                    else if (item.tipo == "2")
+                    {
+                        @Html.Raw("Conferencia")
+                    }
+                    else if (item.tipo == "3")
+                    {
+                        @Html.Raw("Visita Academica")
+                    }
+                    
+                </td>
+                <td style="text-align:center;">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.cceventoid }) |
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.cceventoid })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

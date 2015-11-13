@@ -1,0 +1,54 @@
+﻿@model MvcCecep.ccpeticiondet
+
+@{
+    ViewBag.Title = "DeleteDetalle";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div style="margin-left:300px;">
+
+        <div class="row">
+            <div class="btn-group">
+
+                <h3>¿Esta usted seguro que desea eliminar este registro?</h3>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => model.descripcion, "Descripción")
+                    </div>
+                    <div class="col-md-7">
+                        @Html.DisplayFor(model => model.descripcion)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => model.cctiposerv.descripcion, "Tipo de Servicio")
+                    </div>
+                    <div class="col-md-5">
+                        @Html.DisplayFor(model => model.cctiposerv.descripcion)
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top:14px;">
+            <div class="btn-group">
+                <div class="col-md-5">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </div>
+                <div class="col-md-5">
+                    @Html.ActionLink("Cancelar", "Edit", new { id = Model.ccpeticionid }, new { @class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}
+

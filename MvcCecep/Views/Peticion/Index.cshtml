@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MvcCecep.ccpeticion>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Registros</h2>
+
+
+@Html.ActionLink("Nuevo", "Create", new { ccempresaid = ViewBag.Ccempresaid }, new { @class = "btn btn-success" })
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="text-align:center;">
+                Area
+            </th>
+            <th style="text-align:center;">
+                Descripción
+            </th>
+            <th style="text-align:center;">
+                Estado
+            </th>
+            <th style="text-align:center; width:100px;">
+                Opción
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.ccarea.descripcion
+                </td>
+                <td>
+                    @item.descripcion
+                </td>
+                <td style="text-align:center;">
+                    @if (item.activa == true)
+                    {
+                        <span class="glyphicon glyphicon-ok" title="Activo"></span>
+                    }
+                    else
+                    {
+                        <span class="glyphicon glyphicon-remove" title="Activo"></span>
+                    }
+                </td>
+                <td style="text-align:center;">
+                    @Html.ActionLink(" ", "Edit", new { id = item.ccpeticionid }, new { @class = "btn btn-xs btn-primary glyphicon glyphicon-pencil", @title = "Modificar" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

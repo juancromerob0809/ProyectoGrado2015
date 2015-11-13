@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<style>
+    .pagpp {
+        padding-left:150px;
+        padding-right:150px;
+    }
+</style>
+
+
+
+<div class="pagpp">
+    <img src="~/Images/Alianza_empresa.jpg" style="width:1000px; height:200px;">
+</div>
+
+
+<br />
+
+
+<div class="pagpp">
+
+    <div class="row">
+        <div class="col-xs-6 col-md-4">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Noticias de Interes</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        @foreach (var item in ((IEnumerable<MvcCecep.ccnoticia>)ViewBag.Noticias))
+                        {
+                            <li>
+                                @Html.ActionLink(item.titulo, "Noticia", new { id = item.ccnoticiaid })
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xs-6 col-md-4">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Eventos</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        @foreach (var item in ((IEnumerable<MvcCecep.ccevento>)ViewBag.Eventos))
+                        {
+                            <li>
+                                @Html.ActionLink(item.titulo, "Noticia", new { id = item.cceventoid })
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-xs-6 col-md-4">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Cursos</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        @foreach (var item in ((IEnumerable<MvcCecep.cccurso>)ViewBag.Cursos))
+                        {
+                            <li>
+                                @Html.ActionLink(item.titulo, "Noticia", new { id = item.cccursoid })
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+

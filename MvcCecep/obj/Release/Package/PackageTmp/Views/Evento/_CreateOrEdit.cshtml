@@ -1,0 +1,60 @@
+﻿@model MvcCecep.ccevento
+
+
+
+@{
+    List<SelectListItem> Tipos = new List<SelectListItem>();
+
+    Tipos.Add(new SelectListItem
+    {
+        Text = "Cursos",
+        Value = "1"
+    });
+    Tipos.Add(new SelectListItem
+    {
+        Text = "Conferencias",
+        Value = "2"
+    });
+    Tipos.Add(new SelectListItem
+    {
+        Text = "Visitas Academicas",
+        Value = "3"
+    });
+}
+
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.tipo, "Tipo de Evento")
+    </div>
+    <div class="col-md-5">
+        @Html.DropDownListFor(model => model.tipo, Tipos, "Seleccione...", new { @class = "form-control" })
+    </div>
+</div>
+
+<div class="row" style="margin-top:14px;">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.titulo, "Titulo")
+    </div>
+    <div class="col-md-5">
+        @Html.EditorFor(model => model.titulo)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.descripcion, "Descripción")
+    </div>
+    <div class="col-md-5">
+        @Html.TextAreaFor(model => model.descripcion, new { @class = "form-control" })
+    </div>
+</div>
+
+<div class="row" style="margin-top:14px;">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.fechaevento,"Fecha de Evento")
+    </div>
+    <div class="col-md-5">
+        @Html.EditorFor(model => model.fechaevento)
+    </div>
+</div>

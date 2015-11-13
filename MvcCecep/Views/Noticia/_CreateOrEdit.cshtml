@@ -1,0 +1,31 @@
+﻿@model MvcCecep.ccnoticia
+
+    
+    <div class="row">
+        <div class="col-md-5">
+            @Html.LabelFor(model => model.fechapublic, "Fecha de Publicación")
+        </div>
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.fechapublic)
+        </div>
+    </div>
+
+
+    <div class="row" style="margin-top:14px;">
+        <div class="col-md-5">
+            @Html.LabelFor(model => model.titulo, "Titulo")
+        </div>
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.titulo)
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.descripcion, new { @class = "form-control" })
+        </div>
+    </div>
+
+
+

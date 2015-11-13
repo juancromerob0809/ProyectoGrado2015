@@ -1,0 +1,16 @@
+﻿@model MvcCecep.cctiposerv
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <div>
+        @Html.Partial("_CreateOrEdit", Model)
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+}

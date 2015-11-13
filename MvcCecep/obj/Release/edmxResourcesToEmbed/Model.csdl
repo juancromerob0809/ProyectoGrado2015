@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fcecepModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ccarea">
+    <Key>
+      <PropertyRef Name="ccareaid" />
+    </Key>
+    <Property Name="ccareaid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ccpeticion" Relationship="Self.cc_peticion_area" FromRole="ccarea" ToRole="ccpeticion" />
+    <NavigationProperty Name="ccempresa" Relationship="fcecepModel.fk_empresa_area" FromRole="ccarea" ToRole="ccempresa" />
+  </EntityType>
+  <EntityType Name="ccempresa">
+    <Key>
+      <PropertyRef Name="ccempresaid" />
+    </Key>
+    <Property Name="ccempresaid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dv" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="celular" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="contactnombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="contacttelefono" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="contactcelular" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="mail1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mail2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="loggin" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="contraseña" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="fechafundacion" Type="DateTime" Nullable="false" />
+    <Property Name="ccareaid" Type="Int32" Nullable="false" />
+    <Property Name="fechacreacion" Type="DateTime" Nullable="false" />
+    <Property Name="contactomail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="esadmin" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ccpeticion" Relationship="Self.cc_peticion_empre" FromRole="ccempresa" ToRole="ccpeticion" />
+    <NavigationProperty Name="ccarea" Relationship="fcecepModel.fk_empresa_area" FromRole="ccempresa" ToRole="ccarea" />
+  </EntityType>
+  <EntityType Name="ccevento">
+    <Key>
+      <PropertyRef Name="cceventoid" />
+    </Key>
+    <Property Name="cceventoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="fechaevento" Type="DateTime" />
+    <Property Name="imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="tipo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ccnoticia">
+    <Key>
+      <PropertyRef Name="ccnoticiaid" />
+    </Key>
+    <Property Name="ccnoticiaid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fechapublic" Type="DateTime" Nullable="false" />
+    <Property Name="fechavenc" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="ccpeticion">
+    <Key>
+      <PropertyRef Name="ccpeticionid" />
+    </Key>
+    <Property Name="ccpeticionid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ccareaid" Type="Int32" Nullable="false" />
+    <Property Name="ccempresaid" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="activa" Type="Boolean" />
+    <Property Name="fechacre" Type="DateTime" />
+    <Property Name="fechavenc" Type="DateTime" />
+    <Property Name="fechains" Type="DateTime" />
+    <NavigationProperty Name="ccarea" Relationship="Self.cc_peticion_area" FromRole="ccpeticion" ToRole="ccarea" />
+    <NavigationProperty Name="ccempresa" Relationship="Self.cc_peticion_empre" FromRole="ccpeticion" ToRole="ccempresa" />
+    <NavigationProperty Name="ccpeticiondet" Relationship="Self.cc_peticiondet_peticion" FromRole="ccpeticion" ToRole="ccpeticiondet" />
+  </EntityType>
+  <EntityType Name="ccpeticiondet">
+    <Key>
+      <PropertyRef Name="ccpeticiondetid" />
+    </Key>
+    <Property Name="ccpeticiondetid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ccpeticionid" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="cctiposervid" Type="Int32" />
+    <NavigationProperty Name="ccpeticion" Relationship="Self.cc_peticiondet_peticion" FromRole="ccpeticiondet" ToRole="ccpeticion" />
+    <NavigationProperty Name="cctiposerv" Relationship="Self.cc_peticiondet_tiposerv" FromRole="ccpeticiondet" ToRole="cctiposerv" />
+    <NavigationProperty Name="ccpeticionserv" Relationship="Self.fk_peticionser_peticiondet" FromRole="ccpeticiondet" ToRole="ccpeticionserv" />
+  </EntityType>
+  <EntityType Name="ccpeticionserv">
+    <Key>
+      <PropertyRef Name="ccpeticionservid" />
+    </Key>
+    <Property Name="ccpeticionservid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ccpeticiondetid" Type="Int32" Nullable="false" />
+    <Property Name="cctiposerviciodetid" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ccpeticiondet" Relationship="Self.fk_peticionser_peticiondet" FromRole="ccpeticionserv" ToRole="ccpeticiondet" />
+    <NavigationProperty Name="cctiposervdet" Relationship="Self.fk_peticionserv_tiposervdet" FromRole="ccpeticionserv" ToRole="cctiposervdet" />
+  </EntityType>
+  <EntityType Name="cctiposerv">
+    <Key>
+      <PropertyRef Name="cctiposervid" />
+    </Key>
+    <Property Name="cctiposervid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ccpeticiondet" Relationship="Self.cc_peticiondet_tiposerv" FromRole="cctiposerv" ToRole="ccpeticiondet" />
+    <NavigationProperty Name="cctiposervdet" Relationship="Self.fk_tiposervdet_tiposerv" FromRole="cctiposerv" ToRole="cctiposervdet" />
+  </EntityType>
+  <EntityType Name="cctiposervdet">
+    <Key>
+      <PropertyRef Name="cctiposervdetid" />
+    </Key>
+    <Property Name="cctiposervdetid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cctiposervid" Type="Int32" Nullable="false" />
+    <Property Name="codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ccpeticionserv" Relationship="Self.fk_peticionserv_tiposervdet" FromRole="cctiposervdet" ToRole="ccpeticionserv" />
+    <NavigationProperty Name="cctiposerv" Relationship="Self.fk_tiposervdet_tiposerv" FromRole="cctiposervdet" ToRole="cctiposerv" />
+    <Property Name="url_ayuda" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="observacion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="cc_peticion_area">
+    <End Role="ccarea" Type="Self.ccarea" Multiplicity="1" />
+    <End Role="ccpeticion" Type="Self.ccpeticion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccarea">
+        <PropertyRef Name="ccareaid" />
+      </Principal>
+      <Dependent Role="ccpeticion">
+        <PropertyRef Name="ccareaid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cc_peticion_empre">
+    <End Role="ccempresa" Type="Self.ccempresa" Multiplicity="1" />
+    <End Role="ccpeticion" Type="Self.ccpeticion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccempresa">
+        <PropertyRef Name="ccempresaid" />
+      </Principal>
+      <Dependent Role="ccpeticion">
+        <PropertyRef Name="ccempresaid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cc_peticiondet_peticion">
+    <End Role="ccpeticion" Type="Self.ccpeticion" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ccpeticiondet" Type="Self.ccpeticiondet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccpeticion">
+        <PropertyRef Name="ccpeticionid" />
+      </Principal>
+      <Dependent Role="ccpeticiondet">
+        <PropertyRef Name="ccpeticionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cc_peticiondet_tiposerv">
+    <End Role="cctiposerv" Type="Self.cctiposerv" Multiplicity="0..1" />
+    <End Role="ccpeticiondet" Type="Self.ccpeticiondet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cctiposerv">
+        <PropertyRef Name="cctiposervid" />
+      </Principal>
+      <Dependent Role="ccpeticiondet">
+        <PropertyRef Name="cctiposervid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_peticionser_peticiondet">
+    <End Role="ccpeticiondet" Type="Self.ccpeticiondet" Multiplicity="1" />
+    <End Role="ccpeticionserv" Type="Self.ccpeticionserv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccpeticiondet">
+        <PropertyRef Name="ccpeticiondetid" />
+      </Principal>
+      <Dependent Role="ccpeticionserv">
+        <PropertyRef Name="ccpeticiondetid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_peticionserv_tiposervdet">
+    <End Role="cctiposervdet" Type="Self.cctiposervdet" Multiplicity="1" />
+    <End Role="ccpeticionserv" Type="Self.ccpeticionserv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cctiposervdet">
+        <PropertyRef Name="cctiposervdetid" />
+      </Principal>
+      <Dependent Role="ccpeticionserv">
+        <PropertyRef Name="cctiposerviciodetid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tiposervdet_tiposerv">
+    <End Role="cctiposerv" Type="Self.cctiposerv" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="cctiposervdet" Type="Self.cctiposervdet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cctiposerv">
+        <PropertyRef Name="cctiposervid" />
+      </Principal>
+      <Dependent Role="cctiposervdet">
+        <PropertyRef Name="cctiposervid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CecepEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ccarea" EntityType="Self.ccarea" />
+    <EntitySet Name="ccempresa" EntityType="Self.ccempresa" />
+    <EntitySet Name="ccevento" EntityType="Self.ccevento" />
+    <EntitySet Name="ccnoticia" EntityType="Self.ccnoticia" />
+    <EntitySet Name="ccpeticion" EntityType="Self.ccpeticion" />
+    <EntitySet Name="ccpeticiondet" EntityType="Self.ccpeticiondet" />
+    <EntitySet Name="ccpeticionserv" EntityType="Self.ccpeticionserv" />
+    <EntitySet Name="cctiposerv" EntityType="Self.cctiposerv" />
+    <EntitySet Name="cctiposervdet" EntityType="Self.cctiposervdet" />
+    <AssociationSet Name="cc_peticion_area" Association="Self.cc_peticion_area">
+      <End Role="ccarea" EntitySet="ccarea" />
+      <End Role="ccpeticion" EntitySet="ccpeticion" />
+    </AssociationSet>
+    <AssociationSet Name="cc_peticion_empre" Association="Self.cc_peticion_empre">
+      <End Role="ccempresa" EntitySet="ccempresa" />
+      <End Role="ccpeticion" EntitySet="ccpeticion" />
+    </AssociationSet>
+    <AssociationSet Name="cc_peticiondet_peticion" Association="Self.cc_peticiondet_peticion">
+      <End Role="ccpeticion" EntitySet="ccpeticion" />
+      <End Role="ccpeticiondet" EntitySet="ccpeticiondet" />
+    </AssociationSet>
+    <AssociationSet Name="cc_peticiondet_tiposerv" Association="Self.cc_peticiondet_tiposerv">
+      <End Role="cctiposerv" EntitySet="cctiposerv" />
+      <End Role="ccpeticiondet" EntitySet="ccpeticiondet" />
+    </AssociationSet>
+    <AssociationSet Name="fk_peticionser_peticiondet" Association="Self.fk_peticionser_peticiondet">
+      <End Role="ccpeticiondet" EntitySet="ccpeticiondet" />
+      <End Role="ccpeticionserv" EntitySet="ccpeticionserv" />
+    </AssociationSet>
+    <AssociationSet Name="fk_peticionserv_tiposervdet" Association="Self.fk_peticionserv_tiposervdet">
+      <End Role="cctiposervdet" EntitySet="cctiposervdet" />
+      <End Role="ccpeticionserv" EntitySet="ccpeticionserv" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tiposervdet_tiposerv" Association="Self.fk_tiposervdet_tiposerv">
+      <End Role="cctiposerv" EntitySet="cctiposerv" />
+      <End Role="cctiposervdet" EntitySet="cctiposervdet" />
+    </AssociationSet>
+    <AssociationSet Name="fk_empresa_area" Association="fcecepModel.fk_empresa_area">
+      <End Role="ccarea" EntitySet="ccarea" />
+      <End Role="ccempresa" EntitySet="ccempresa" />
+    </AssociationSet>
+    <EntitySet Name="cccurso" EntityType="fcecepModel.cccurso" />
+  </EntityContainer>
+  <Association Name="fk_empresa_area">
+    <End Type="fcecepModel.ccarea" Role="ccarea" Multiplicity="1" />
+    <End Type="fcecepModel.ccempresa" Role="ccempresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccarea">
+        <PropertyRef Name="ccareaid" />
+      </Principal>
+      <Dependent Role="ccempresa">
+        <PropertyRef Name="ccareaid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="cccurso">
+    <Key>
+      <PropertyRef Name="cccursoid" />
+    </Key>
+    <Property Name="cccursoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="fechaini" Type="DateTime" />
+    <Property Name="fechafin" Type="DateTime" />
+  </EntityType>
+</Schema>

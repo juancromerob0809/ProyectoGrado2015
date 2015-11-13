@@ -1,0 +1,41 @@
+﻿@model MvcCecep.cctiposervdet
+
+
+@Html.HiddenFor(model => model.cctiposervid)
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.codigo, "Codigo")
+    </div>
+    <div class="col-md-5">
+        @Html.EditorFor(model => model.codigo)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.descripcion, "Descripción")
+    </div>
+    <div class="col-md-5">
+        @Html.EditorFor(model => model.descripcion)
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.url_ayuda, "URL")
+    </div>
+    <div class="col-md-5">
+        @Html.EditorFor(model => model.url_ayuda)
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.observacion, "Observación")
+    </div>
+    <div class="col-md-5">
+        @Html.TextAreaFor(model => model.observacion, new { @class = "form-control" })
+    </div>
+</div>

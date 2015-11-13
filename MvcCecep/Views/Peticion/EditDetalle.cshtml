@@ -1,0 +1,102 @@
+﻿@model MvcCecep.Models.PeticionVerificacion
+
+@{
+    ViewBag.Title = "EditDetalle";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div style="width: 900px; margin: 0 auto; margin-top: 40px;">
+        <div class="control-group">
+            @Html.HiddenFor(model => model.ccpeticionid)
+
+
+            <div class="row">
+                <div class="col-md-5">
+                    @Html.LabelFor(model => model.cctiposervid, "Tipo de Servicio")
+                </div>
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.cctiposervid, ((IEnumerable<MvcCecep.cctiposerv>)ViewBag.cctiposervicio).Select(option => new SelectListItem
+                    {
+                        Text = string.Format("{0} {1}", option.codigo, option.descripcion),
+                        Value = option.cctiposervid.ToString(),
+                        Selected = (Model != null) && (option.cctiposervid == Model.cctiposervid)
+                    }), "Seleccionar...", new { @class = "select2 form-control clear-text-field input-block-level" })
+                    @Html.ValidationMessageFor(model => model.cctiposervid)
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-top:10px;">
+                <div class="col-md-5">
+                    @Html.LabelFor(model => model.descripcion, "Descripción")
+                </div>
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.descripcion)
+                    @Html.ValidationMessageFor(model => model.descripcion)
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-5">
+                    @Html.LabelFor(model => model.fecha, "Fecha")
+                </div>
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.fecha)
+                    @Html.ValidationMessageFor(model => model.fecha)
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="text-align:center;">
+                        Codigo
+                    </th>
+                    <th style="text-align:center;">
+                        Descripción
+                    </th>
+                    <th style="text-align:center;">
+                        Estado
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.cctiposervdetid.Length; i++)
+                { 
+                <tr>
+                    <td style="text-align:center;">
+                        @Html.HiddenFor(model => model.cctiposervdetid[i])
+                        @Html.HiddenFor(model => model.ccpetecionservid[i])
+                        
+                        @Html.HiddenFor(model => model.cctiposerv_codigo[i])
+                        @Html.DisplayFor(model => model.cctiposerv_codigo[i])
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.cctiposervdet_descrip[i])
+                        @Html.HiddenFor(model => model.cctiposervdet_descrip[i])
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.CheckBoxFor(model => model.estado[i])
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+
+}

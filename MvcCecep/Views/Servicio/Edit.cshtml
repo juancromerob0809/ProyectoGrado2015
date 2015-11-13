@@ -1,0 +1,63 @@
+﻿@model MvcCecep.cctiposerv
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm())
+{
+
+    <h3>Tipo de Servicio</h3>
+
+    <br />
+    <div>
+        @Html.HiddenFor(model => model.cctiposervid)
+        @Html.Partial("_CreateOrEdit", Model)
+    </div>
+
+    <h4>Condiciónes del tipo de servicio</h4>
+
+
+    @Html.ActionLink("Nuevo", "CreateDetalle", new { id = Model.cctiposervid }, new { @class = "btn btn-success" })
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="text-align:center;">
+                    Codigo
+                </th>
+                <th style="text-align:center;">
+                    Descripción
+                </th>
+                <th style="text-align:center;">
+                    Categoria
+                </th>
+                <th style="text-align:center">
+                    Opcion
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.cctiposervdet)
+            {
+                <tr>
+                    <td style="text-align:center;">
+                        @item.codigo
+                    </td>
+                    <td>
+                        @item.descripcion
+                    </td>
+                    <td>
+                        @item.categoria
+                    </td>
+                    <td style="text-align:center;">
+                        @Html.ActionLink(" ", "EditDetalle", new { id = item.cctiposervdetid }, new { @class = "btn btn-xs btn-primary glyphicon glyphicon-pencil", @title = "Modificar" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+}

@@ -1,0 +1,12 @@
+﻿@using MvcCecep.Utility
+@model decimal?
+@*{0:F2} {0:C2} {0:n2} "*@
+<div class="form-group@(Html.ValidationErrorFor(m => m, " has-error"))">
+    <div class="input-group"><span class="input-group-addon">$</span>
+        @Html.TextBox(
+        "",
+        Model == null ? "" : String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:n2}", ViewData.ModelMetadata.Model), 
+        ViewBag.ClearTextField == true ? new { @class = "form-control clear-text-field input-block-level" } : new { @class = "form-control input-block-level currency" })
+    </div>
+    @Html.ValidationMessageFor(m => m, null, new { @class = "help-block" })
+</div>

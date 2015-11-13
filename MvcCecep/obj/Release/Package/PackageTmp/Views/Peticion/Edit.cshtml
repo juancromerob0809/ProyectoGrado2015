@@ -1,0 +1,92 @@
+﻿@model MvcCecep.ccpeticion
+
+@{
+    ViewBag.Title = "Editar Petición";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{ 
+@Html.AntiForgeryToken()
+
+
+
+<div style="width: 900px; margin: 0 auto; margin-top: 40px;">
+    @Html.ValidationSummary(true, "Debe llenar todos los campos")
+    <div class="control-group">
+        @Html.HiddenFor(model => model.ccpeticionid)
+        @Html.Partial("_CreateOrEdit", Model)
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Nuevo", "CreateDetalle", new { ccpeticionid = Model.ccpeticionid }, new { @class = "btn btn-success btn-xs" })
+</div>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="text-align:center">
+                Tipo de Servicio
+            </th>
+            <th style="text-align:center">
+                Descripción
+            </th>
+            <th style="text-align:center">
+                Fecha
+            </th>
+            <th style="text-align:center">
+                Req Aprob
+            </th>
+            <th style="text-align:center">
+                Req Falt
+            </th>
+            <th style="text-align:center; width:100px;">
+                Opción
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ccpeticiondet)
+        {
+            <tr>
+                <td style="text-align:center;">
+                    @item.cctiposerv.descripcion
+                </td>
+                <td>
+                    @item.descripcion
+                </td>
+                <td style="text-align:center;">
+                    @string.Format("{0:M/d/yyyy}", item.fecha)
+                </td>
+                <td style="text-align:center">
+                    @item.ccpeticionserv.Where(x => x.estado == true).Count()
+                </td>
+                <td style="text-align:center;">
+                    @item.ccpeticionserv.Where(x => x.estado == false).Count()
+                </td>
+                <td style="text-align:center;">
+                    @Html.ActionLink(" ", "EditDetalle", new { ccpeticiondetid = item.ccpeticiondetid }, new { @class = "btn btn-xs btn-primary glyphicon glyphicon-pencil", @title = "Modificar" })
+                    @Html.ActionLink(" ", "DeleteDetalle", new { ccpeticiondetid = item.ccpeticiondetid }, new { @class = "btn btn-xs btn-danger glyphicon glyphicon-remove", @title = "Borrar" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+    <div class="btn-group">
+        <div class="col-md-5">
+            <button type="submit" class="btn btn-success" title="Al guardar la peticion esta se activara">Guardar</button>
+        </div>
+        <div class="col-md-5">
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+    
+
+}

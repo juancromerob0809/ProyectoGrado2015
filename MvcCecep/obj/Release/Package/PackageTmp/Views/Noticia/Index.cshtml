@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MvcCecep.ccnoticia>
+
+@{
+    ViewBag.Title = "Administrador de Noticias";
+}
+
+
+<p>
+    @Html.ActionLink("Nuva Noticia", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="text-align:center;">
+                Titulo
+            </th>
+            <th style="text-align:center;">
+                Fecha Publicación
+            </th>
+            <th style="text-align:center;">
+                Fecha Vencimiento
+            </th>
+            <th style="text-align:center;">
+                Opciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.titulo
+                </td>
+                <td style="text-align:center;">
+                    @string.Format("{0:dd/MMMM/yyyy}", item.fechapublic)
+                </td>
+                <td style="text-align:center;">
+                    @item.fechavenc
+                </td>
+                <td style="text-align:center;">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ccnoticiaid }) |
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.ccnoticiaid })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

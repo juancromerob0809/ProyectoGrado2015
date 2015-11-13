@@ -1,0 +1,14 @@
+﻿@if (Request.IsAuthenticated) {
+    <text>
+        Hola Bienvenido, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sessión</a>
+        }
+    </text>
+} else {
+    
+        <li>@Html.ActionLink("Iniciar Session", "Login", "Account")</li>
+        <li>@Html.ActionLink("Nuevo Usuario", "Create", "Empresa")</li>
+    
+}

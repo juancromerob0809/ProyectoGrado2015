@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="fcecepModelStoreContainer" CdmEntityContainer="CecepEntities">
+    <EntitySetMapping Name="ccarea">
+      <EntityTypeMapping TypeName="fcecepModel.ccarea">
+        <MappingFragment StoreEntitySet="ccarea">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="ccareaid" ColumnName="ccareaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cccurso">
+      <EntityTypeMapping TypeName="fcecepModel.cccurso">
+        <MappingFragment StoreEntitySet="cccurso">
+          <ScalarProperty Name="fechafin" ColumnName="fechafin" />
+          <ScalarProperty Name="fechaini" ColumnName="fechaini" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="cccursoid" ColumnName="cccursoid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ccempresa">
+      <EntityTypeMapping TypeName="fcecepModel.ccempresa">
+        <MappingFragment StoreEntitySet="ccempresa">
+          <ScalarProperty Name="esadmin" ColumnName="esadmin" />
+          <ScalarProperty Name="contactomail" ColumnName="contactomail" />
+          <ScalarProperty Name="fechacreacion" ColumnName="fechacreacion" />
+          <ScalarProperty Name="ccareaid" ColumnName="ccareaid" />
+          <ScalarProperty Name="fechafundacion" ColumnName="fechafundacion" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+          <ScalarProperty Name="loggin" ColumnName="loggin" />
+          <ScalarProperty Name="mail2" ColumnName="mail2" />
+          <ScalarProperty Name="mail1" ColumnName="mail1" />
+          <ScalarProperty Name="contactcelular" ColumnName="contactcelular" />
+          <ScalarProperty Name="contacttelefono" ColumnName="contacttelefono" />
+          <ScalarProperty Name="contactnombre" ColumnName="contactnombre" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="dv" ColumnName="dv" />
+          <ScalarProperty Name="nit" ColumnName="nit" />
+          <ScalarProperty Name="ccempresaid" ColumnName="ccempresaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ccevento">
+      <EntityTypeMapping TypeName="fcecepModel.ccevento">
+        <MappingFragment StoreEntitySet="ccevento">
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="fechaevento" ColumnName="fechaevento" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="cceventoid" ColumnName="cceventoid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ccnoticia">
+      <EntityTypeMapping TypeName="fcecepModel.ccnoticia">
+        <MappingFragment StoreEntitySet="ccnoticia">
+          <ScalarProperty Name="fechavenc" ColumnName="fechavenc" />
+          <ScalarProperty Name="fechapublic" ColumnName="fechapublic" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="ccnoticiaid" ColumnName="ccnoticiaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ccpeticion">
+      <EntityTypeMapping TypeName="fcecepModel.ccpeticion">
+        <MappingFragment StoreEntitySet="ccpeticion">
+          <ScalarProperty Name="fechains" ColumnName="fechains" />
+          <ScalarProperty Name="fechavenc" ColumnName="fechavenc" />
+          <ScalarProperty Name="fechacre" ColumnName="fechacre" />
+          <ScalarProperty Name="activa" ColumnName="activa" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="ccempresaid" ColumnName="ccempresaid" />
+          <ScalarProperty Name="ccareaid" ColumnName="ccareaid" />
+          <ScalarProperty Name="ccpeticionid" ColumnName="ccpeticionid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ccpeticiondet">
+      <EntityTypeMapping TypeName="fcecepModel.ccpeticiondet">
+        <MappingFragment StoreEntitySet="ccpeticiondet">
+          <ScalarProperty Name="cctiposervid" ColumnName="cctiposervid" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="ccpeticionid" ColumnName="ccpeticionid" />
+          <ScalarProperty Name="ccpeticiondetid" ColumnName="ccpeticiondetid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cctiposerv">
+      <EntityTypeMapping TypeName="fcecepModel.cctiposerv">
+        <MappingFragment StoreEntitySet="cctiposerv">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="cctiposervid" ColumnName="cctiposervid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cctiposervdet">
+      <EntityTypeMapping TypeName="fcecepModel.cctiposervdet">
+        <MappingFragment StoreEntitySet="cctiposervdet">
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="url_ayuda" ColumnName="url_ayuda" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="cctiposervid" ColumnName="cctiposervid" />
+          <ScalarProperty Name="cctiposervdetid" ColumnName="cctiposervdetid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ccpeticionserv">
+      <EntityTypeMapping TypeName="fcecepModel.ccpeticionserv">
+        <MappingFragment StoreEntitySet="ccpeticionserv">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="cctiposerviciodetid" ColumnName="cctiposerviciodetid" />
+          <ScalarProperty Name="ccpeticiondetid" ColumnName="ccpeticiondetid" />
+          <ScalarProperty Name="ccpeticionservid" ColumnName="ccpeticionservid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cctiposervcat">
+      <EntityTypeMapping TypeName="fcecepModel.cctiposervcat">
+        <MappingFragment StoreEntitySet="cctiposervcat">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="cctiposervcatid" ColumnName="cctiposervcatid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

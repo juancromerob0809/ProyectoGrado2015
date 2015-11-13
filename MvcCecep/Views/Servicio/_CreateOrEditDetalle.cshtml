@@ -1,0 +1,58 @@
+﻿@model MvcCecep.cctiposervdet
+
+
+@Html.HiddenFor(model => model.cctiposervid)
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.codigo, "Codigo")
+    </div>
+    <div class="col-md-5">
+        @Html.EditorFor(model => model.codigo)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.descripcion, "Descripción")
+    </div>
+    <div class="col-md-5">
+        @Html.EditorFor(model => model.descripcion)
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.url_ayuda, "URL")
+    </div>
+    <div class="col-md-5">
+        @Html.EditorFor(model => model.url_ayuda)
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.observacion, "Observación")
+    </div>
+    <div class="col-md-5">
+        @Html.TextAreaFor(model => model.observacion, new { @class = "form-control" })
+    </div>
+</div>
+
+
+
+
+<div class="row" style="margin-top:10px;">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.categoria, "Categoria")
+    </div>
+    <div class="col-md-5">
+        @Html.DropDownListFor(model => model.categoria, ((IEnumerable<MvcCecep.cctiposervcat>)ViewBag.PossibleCategorias).Select(option => new SelectListItem
+                    {
+                        Text = string.Format("{0}", option.descripcion),
+                        Value = option.descripcion.ToString()
+                    }), new { @class = "select2 form-control clear-text-field input-block-level" })
+        
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model MvcCecep.ccpeticiondet
+
+
+
+
+@Html.HiddenFor(model => model.ccpeticionid)
+
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.cctiposervid,"Tipo de Servicio")
+    </div>
+    <div class="col-md-5">
+        @Html.DropDownListFor(model => model.cctiposervid, ((IEnumerable<MvcCecep.cctiposerv>)ViewBag.cctiposervicio).Select(option => new SelectListItem
+                    {
+                        Text = string.Format("{0} {1}", option.codigo, option.descripcion),
+                        Value = option.cctiposervid.ToString(),
+                        Selected = (Model != null) && (option.cctiposervid == Model.cctiposervid)
+                    }), "Seleccionar...", new { @class = "select2 form-control clear-text-field input-block-level" })
+        @Html.ValidationMessageFor(model => model.cctiposervid)
+    </div>
+</div>
+
+
+<div class="row" style="margin-top:10px;">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.descripcion,"Descripción")
+    </div>
+    <div class="col-md-5">
+        @Html.EditorFor(model => model.descripcion)
+        @Html.ValidationMessageFor(model => model.descripcion)
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.LabelFor(model => model.fecha,"Fecha")
+    </div>
+    <div class="col-md-5">
+        @Html.EditorFor(model => model.fecha)
+        @Html.ValidationMessageFor(model => model.fecha)
+    </div>
+</div>

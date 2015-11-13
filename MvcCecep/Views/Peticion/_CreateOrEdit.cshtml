@@ -1,0 +1,54 @@
+﻿@model MvcCecep.ccpeticion
+
+
+
+@Html.HiddenFor(model => model.ccempresaid)
+    <div class="row">
+        <div class="col-md-5">
+            @Html.LabelFor(model => model.ccareaid, "Area")
+        </div>
+        <div class="col-md-5">
+            @Html.DropDownListFor(model => model.ccareaid, ((IEnumerable<MvcCecep.ccarea>)ViewBag.ccarea).Select(option => new SelectListItem
+                    {
+                        Text = string.Format("{0} {1}", option.codigo, option.descripcion),
+                        Value = option.ccareaid.ToString(),
+                        Selected = (Model != null) && (option.ccareaid == Model.ccareaid)
+                    }), "Seleccionar...", new { @class = "select2 form-control clear-text-field input-block-level" })
+            @Html.ValidationMessageFor(model => model.ccareaid)
+        </div>
+    </div>
+
+
+
+    <div class="row" style="margin-top:12px;">
+        <div class="col-md-5">
+            @Html.LabelFor(model => model.descripcion, "Descripción")
+        </div>
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.descripcion)
+            @Html.ValidationMessageFor(model => model.descripcion)
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-5">
+            @Html.LabelFor(model => model.fechacre, "Fecha de Inicio")
+        </div>
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.fechacre)
+            @Html.ValidationMessageFor(model => model.fechacre)
+        </div>
+    </div>
+
+
+    <div class="row" style="margin-top:12px;">
+        <div class="col-md-5">
+            @Html.LabelFor(model => model.fechavenc, "Fecha de Vencimiento")
+        </div>
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.fechavenc)
+            @Html.ValidationMessageFor(model => model.fechavenc)
+        </div>
+    </div>
+

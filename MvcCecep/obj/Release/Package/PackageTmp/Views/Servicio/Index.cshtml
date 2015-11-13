@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MvcCecep.cctiposerv>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tipos de Servicio</h2>
+
+@Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-success" })
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="text-align:center;">
+                Codigo
+            </th>
+            <th style="text-align:center;">
+                Descripción
+            </th>
+            <th style="text-align:center;">
+                Opciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align:center;">
+                    @item.codigo
+                </td>
+                <td>
+                    @item.descripcion
+                </td>
+                <td style="text-align:center;">
+                    @Html.ActionLink(" ", "Edit", new { id = item.cctiposervid }, new { @class = "btn btn-xs btn-primary glyphicon glyphicon-pencil", @title = "Modificar" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

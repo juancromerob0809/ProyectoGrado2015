@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Cecep</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <header>
+        @*<nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+
+                        <a href="~/Home/Index"><img src="~/Images/logo-cecep.jpg" style="width:150px;" /></a>
+                    </div>
+
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Empresas", "Index", "Empresa")</li>
+                            <li>@Html.ActionLink("Peticiones", "Index", "Peticion")</li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="dropdown-header">Nav header</li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            @Html.Partial("_LoginPartial")
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>*@
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Brand</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("¿Quienes somos?", "About", "Home")</li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Servicios <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    @Html.ActionLink("Registro de empresas", "Create", "Empresa")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Administracion de empresas", "Index", "Empresa")
+                                </li>
+                                <li>@Html.ActionLink("Peticiones", "Index", "Peticion")</li>
+
+
+
+
+                                <li>@Html.Partial("_LoginPartial")</li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eventos<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    @Html.ActionLink("Cursos", "Contact", "Home")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Conferencias", "Contact", "Home")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Visitas Academicas", "Contact", "Home")
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("¿Contactenos", "Contact", "Home")</li>
+
+                        <li>@Html.ActionLink("Admin Noticias", "Index", "Noticia")</li>
+
+                        <li>@Html.ActionLink("Admin Eventos", "Index", "Evento")</li>
+
+                        <li>@Html.ActionLink("Tipos de Servicios", "Index", "Servicio")</li>
+
+                    </ul>
+
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix" style="margin: 30px;">
+            @RenderBody()
+        </section>
+    </div>
+
+
+
+
+
+    <footer>
+        <nav class="navbar navbar-default navbar-fixed-bottom" style="min-height:20px;">
+            <div class="container">
+                <label>Aplicacion Para el Cecep. By: J.C.R.Z. 2015</label>
+            </div>
+        </nav>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

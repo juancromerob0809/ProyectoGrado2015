@@ -1,0 +1,67 @@
+﻿@model MvcCecep.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+
+
+
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+
+<section id="loginForm">
+    <h2>Por favor inicie session</h2>
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.UserName, "Usuario")
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </div>
+            </div>
+
+
+
+            <div class="row" style="margin-top:10px;">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Password, "Contraseña")
+                </div>
+                <div class="col-md-2">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-top:10px;">
+                <div class="col-md-2">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.RememberMe, "Recordar Credenciales", new { @class = "checkbox" })
+                </div>
+            </div>
+
+
+
+            <input type="submit" value="Ingresar" class="btn btn-success" />
+
+        </fieldset>
+
+    }
+</section>
+
+
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />

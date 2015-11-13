@@ -1,0 +1,24 @@
+﻿@model MvcCecep.ccevento
+
+@{
+    ViewBag.Title = "Nuevo Evento";
+}
+
+<h2>Nuevo Evento</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.Partial("_CreateOrEdit", Model)
+
+    <div class="row">
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+        <div class="col-md-2">
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    </div>
+
+}

@@ -1,0 +1,276 @@
+﻿@model MvcCecep.ccempresa
+
+@{
+    ViewBag.Title = "Nuevo Usuario";
+}
+
+<ol class="breadcrumb">
+
+    <li class="active">Nuevo Usuario</li>
+</ol>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+    <hr />
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @*panel de informacion basica*@
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Información Basica
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.nit, "Identificación", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.nit, new { @class = "form-control", @placeholder = "Identificación" })
+                    @Html.ValidationMessageFor(model => model.nit, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-1">
+                    @Html.EditorFor(model => model.dv, new { @class = "form-control", @placeholder = "DV" })
+                    @Html.ValidationMessageFor(model => model.dv, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.descripcion, "Descripción", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.descripcion, new { @class = "form-control", @placeholder = "Nombre ó Razon Social" })
+                    @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+
+            <div class="row" style="margin-top:14px;">
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.direccion, "Dirección", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.direccion, new { @class = "form-control", @placeholder = "Dirección" })
+                    @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-1"></div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.telefono, "Telefono", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.telefono, new { @class = "form-control", @placeholder = "Telefono" })
+                    @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.celular, "Celular", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.celular, new { @class = "form-control", @placeholder = "Celular" })
+                    @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+
+            <div class="row" style="margin-top:14px;">
+
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.mail1, "E-mail", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.mail1, new { @class = "form-control", @placeholder = "E-mail" })
+                    @Html.ValidationMessageFor(model => model.mail1, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-1"></div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.mail2, "E-mail Alt", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.mail2, new { @class = "form-control", @placeholder = "E-mail Alternativo" })
+                    @Html.ValidationMessageFor(model => model.mail2, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+
+            <div class="row" style="margin-top:10px;">
+                <div class="col-md-2">
+                    @Html.LabelFor(model => model.fechafundacion, "Fecha de Fundación", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.fechafundacion, new { @class = "form-control", @type = "date" })
+                    @Html.ValidationMessageFor(model => model.fechafundacion, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="col-md-1"></div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.ccareaid, "Sector", htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownList("ccareaid", null, "Seleccione...", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ccareaid, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+        </div> @*cierre del panel*@
+    </div> @*cierre del panel*@
+
+
+
+    @*Panel de informacion de contacto*@
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Información de Contacto
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.contactnombre, "Nombre", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.contactnombre, new { @class = "form-control", @placeholder = "Nombre de Contacto" })
+                    @Html.ValidationMessageFor(model => model.contactnombre, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.contacttelefono, "Telefono", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.contacttelefono, new { @class = "form-control", @placeholder = "Telefono de Contacto" })
+                    @Html.ValidationMessageFor(model => model.contacttelefono, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.contactcelular, "Celular", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.contactcelular, new { @class = "form-control", @placeholder = "Celular de Contacto" })
+                    @Html.ValidationMessageFor(model => model.contactcelular, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.contactomail, "E-mail")
+                </div>
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.contactomail, new { @class = "form-control", @placeholder = "e-mail de contacto" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    @*Panel de informacion de session*@
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Información de Sessión
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.loggin, "Usuario", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.loggin, new { @class = "form-control", @placeholder = "Usuario" })
+                    @Html.ValidationMessageFor(model => model.loggin, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.contraseña, "Contraseña", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-md-3">
+                    @Html.PasswordFor(model => model.contraseña, new { @class = "form-control", @placeholder = "Contraseña" })
+                    @Html.ValidationMessageFor(model => model.contraseña, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-3">
+                    @Html.Password("contra2","", new { @class = "form-control", @placeholder = "Verifique Contraseña" })
+                    @Html.ValidationMessage("contra2", "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+
+
+}
+
+
+
+<script>
+    $("#dv").attr('readonly', true);
+
+    $("#nit").change(function CalcularDv() {
+        var vpri, x, y, z, i, dv1;
+
+        var nit = $("#nit").val();
+
+        if (isNaN(nit)) {
+            $("#digito_verificacion").val('X');
+            alert('El valor digitado no es un numero valido');
+        } else {
+            vpri = new Array(16);
+            x = 0;
+            y = 0;
+            z = nit.length;
+            vpri[1] = 3;
+            vpri[2] = 7;
+            vpri[3] = 13;
+            vpri[4] = 17;
+            vpri[5] = 19;
+            vpri[6] = 23;
+            vpri[7] = 29;
+            vpri[8] = 37;
+            vpri[9] = 41;
+            vpri[10] = 43;
+            vpri[11] = 47;
+            vpri[12] = 53;
+            vpri[13] = 59;
+            vpri[14] = 67;
+            vpri[15] = 71;
+            for (i = 0; i < z; i++) {
+                y = (nit.substr(i, 1));
+                //document.write(y+"x"+ vpri[z-i] +":");
+                x += (y * vpri[z - i]);
+                //document.write(x+"<br>");
+            }
+            y = x % 11
+            //document.write(y+"<br>");
+            if (y > 1) {
+                dv1 = 11 - y;
+            } else {
+                dv1 = y;
+            }
+            $("#dv").val(dv1);
+        }
+    });
+</script>

@@ -1,0 +1,32 @@
+﻿@model MvcCecep.ccnoticia
+
+@{
+    ViewBag.Title = "Noticia";
+}
+
+
+<ol class="breadcrumb">
+
+    <li>Noticias</li>
+    <li class="active">@Model.titulo</li>
+</ol>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">@Model.titulo</h3>
+    </div>
+    <div class="panel-body">
+        @Model.descripcion
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
